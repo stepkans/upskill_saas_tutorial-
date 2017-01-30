@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
    
-   before_action :configure_premitted_parameters, if: :devise_controller?
+   
+  # Whitelist the fllowing form field so we can process them, if they are comming from Devise sign_up form
+  before_action :configure_premitted_parameters, if: :devise_controller?
    
   protected
   def  configure_premitted_parameters
